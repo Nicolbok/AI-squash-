@@ -1,0 +1,167 @@
+// Global Variables
+let currentUser;
+let currentLocation;
+let currentClub;
+
+// User Profile
+class User {
+  constructor(name, photo, country, state, club, ranking) {
+    this.name = name;
+    this.photo = photo;
+    this.country = country;
+    this.state = state;
+    this.club = club;
+    this.ranking = ranking;
+  }
+
+  setAvailability(availability) {
+    this.availability = availability;
+  }
+
+  getAvailability() {
+    return this.availability;
+  }
+}
+
+// Location
+class Location {
+  constructor(latitude, longitude) {
+    this.latitude = latitude;
+    this.longitude = longitude;
+  }
+}
+
+// Club
+class Club {
+  constructor(name, location, courts) {
+    this.name = name;
+    this.location = location;
+    this.courts = courts;
+  }
+
+  getAvailableCourts(date, time) {
+    let availableCourts = [];
+    this.courts.forEach((court) => {
+      if (court.isAvailable(date, time)) {
+        availableCourts.push(court);
+      }
+    });
+    return availableCourts;
+  }
+}
+
+// Court
+class Court {
+  constructor(number, club) {
+    this.number = number;
+    this.club = club;
+    this.bookings = [];
+  }
+
+  isAvailable(date, time) {
+    // check if the court is available on the given date and time
+  }
+
+  book(user, date, time) {
+    // book the court for the given user, date, and time
+  }
+}
+
+// Match
+class Match {
+  constructor(player1, player2, date, time, court) {
+    this.player1 = player1;
+    this.player2 = player2;
+    this.date = date;
+    this.time = time;
+    this.court = court;
+    this.winner = null;
+  }
+
+  setWinner(winner) {
+    this.winner = winner;
+  }
+
+  getWinner() {
+    return this.winner;
+  }
+}
+
+// Admin
+class Admin {
+  constructor(name, email, password) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+  }
+
+  addClub(club) {
+    // add a new club to the system
+  }
+
+  removeClub(club) {
+    // remove a club from the system
+  }
+
+  addPlayer(player, club) {
+    // add a new player to the system
+  }
+
+  removePlayer(player) {
+    // remove a player from the system
+  }
+}
+
+// Payment
+class Payment {
+  constructor(user, amount, date, time) {
+    this.user = user;
+    this.amount = amount;
+    this.date = date;
+    this.time = time;
+  }
+
+  process() {
+    // process the payment
+  }
+}
+
+// UI Functions
+function login() {
+  // log in the user
+}
+
+function logout() {
+  // log out the user
+}
+
+function signup() {
+  // sign up a new user
+}
+
+function viewProfile(user) {
+  // view the user's profile
+}
+
+function editProfile(user) {
+  // edit the user's profile
+}
+
+function searchPlayers(location, filter) {
+  // search for players by location and filter
+}
+
+function viewClub(club) {
+  // view the club's details
+}
+
+function bookCourt(court, date, time) {
+  // book a court for the given date and time
+}
+
+function searchMatches(location, filter) {
+  // search for matches by location and filter
+}
+
+function createMatch(player1, player2, date, time, court) {
+  // create a new match
